@@ -23,5 +23,8 @@
   },
   "devDependencies": {
     "eslint": "^10.2.1"
+  },
+  "dependencies": {
+    "brain-even": "^0.1.12"
   }
 }
