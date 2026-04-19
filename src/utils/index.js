@@ -1,9 +1,10 @@
 import readlineSync from 'readline-sync';
-import greet from './cli.js';
+import greet from '../src/utils/cli.js';
 
 const numberOfRounds = 3;
 
 const runGameEngine = (gameDescription, getGameData) => {
+ const name = greet();
   
   console.log(gameDescription);
 
