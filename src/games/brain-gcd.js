@@ -1,5 +1,5 @@
 import getRandomNum from '../utils/randomNum.js';
-import runGameEngine from '../index.js';
+import runGameEngine from '../utils/index.js';
 
 const settings = {
   minNum: 0,
