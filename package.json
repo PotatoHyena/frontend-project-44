@@ -29,6 +29,7 @@
     "eslint": "^10.2.1"
   },
   "dependencies": {
-    "brain-even": "^1.0.0"
+    "brain-even": "^1.0.0",
+    "readline-sync": "^1.4.10"
   }
 }
