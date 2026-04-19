@@ -6,7 +6,8 @@ const runGameEngine = (gameDescription, getGameData) => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   console.log(gameDescription);
-for (let i = 0; i < numberOfRounds; i += 1) {
+
+  for (let i = 0; i < numberOfRounds; i += 1) {
     const [question, correctAnswer] = getGameData();
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
@@ -16,8 +17,10 @@ for (let i = 0; i < numberOfRounds; i += 1) {
       console.log(`Let's try again, ${name}!`);
       return;
     }
+
     console.log('Correct!');
   }
+
   console.log(`Congratulations, ${name}!`);
 };
 
