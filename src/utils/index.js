@@ -1,23 +1,23 @@
 import readlineSync from 'readline-sync';
+import greet from './cli.js';
 
-const roundsCount = 3;
+const numberOfRounds = 3;
 
 const runGameEngine = (gameDescription, getGameData) => {
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
+ const name = greet();
+  
   console.log(gameDescription);
 
-  for (let i = 0; i < roundsCount; i += 1) {
+  for (let i = 0; i < numberOfRounds; i += 1) {
     const [question, correctAnswer] = getGameData();
     console.log(`Question: ${question}`);
-    const answer = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
 
-    if (answer !== correctAnswer) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+    if (userAnswer !== correctAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
       return;
     }
-
     console.log('Correct!');
   }
 
