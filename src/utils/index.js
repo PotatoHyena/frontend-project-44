@@ -4,7 +4,7 @@ const numberOfRounds = 3;
 
 const runGameEngine = (gameDescription, getQuestionResult) => {
   console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name?', {
+  const name = readlineSync.question('May I have your name?'/n, {
     defaultInput: 'John',
   });
   console.log(`Hello, ${name}!`);
