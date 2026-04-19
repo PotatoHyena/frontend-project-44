@@ -4,7 +4,6 @@ import greet from './cli.js';
 const numberOfRounds = 3;
 
 const runGameEngine = (gameDescription, getGameData) => {
- const name = greet();
   
   console.log(gameDescription);
 
