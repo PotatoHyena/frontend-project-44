@@ -5,7 +5,7 @@ const settings = {
   minNum: 0,
   maxNum: 100,
 };
-const gameDescription = 'Answer "yes" if  the number is even, otherwise answer "no".';
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 const numIsEven = (num) => num % 2 === 0;
 
 const getGameData = () => {
