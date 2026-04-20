@@ -1,3 +1,4 @@
+// src/games/brain-even.js
 import getRandomNum from '../utils/randomNum.js'
 import runGameEngine from '../utils/index.js'
 
@@ -6,7 +7,7 @@ const gameDescription = 'Answer "yes" if the number is even, otherwise answer "n
 const getGameData = () => {
   const question = getRandomNum(0, 100)
   const correctAnswer = question % 2 === 0 ? 'yes' : 'no'
-  return [question, correctAnswer]
+  return [String(question), correctAnswer]
 }
 
 const runBrainEven = () => {
