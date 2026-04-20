@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import greet from '../src/utils/cli.js';
+import greet from '../utils/cli.js';
 
 const numberOfRounds = 3;
 
