@@ -1,4 +1,3 @@
-// src/games/brain-even.js
 import getRandomNum from '../utils/randomNum.js'
 import runGameEngine from '../utils/index.js'
 

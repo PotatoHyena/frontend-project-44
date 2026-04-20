@@ -1,4 +1,3 @@
-// src/utils/cli.js
 import readlineSync from 'readline-sync'
 
 const greet = () => {
