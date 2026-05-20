@@ -1,16 +1,12 @@
-import runGameEngine from '../utils/index.js';
-import getRandomNum from '../utils/randomNum.js';
+const getRandomNumber = () => Math.floor(Math.random() * 100)
 
-const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
+const isEven = number => number % 2 === 0
 
-const getGameData = () => {
-  const question = getRandomNum(1, 100);
-  const correctAnswer = question % 2 === 0 ? 'yes' : 'no';
-  return [String(question), correctAnswer];
-};
+const getEvenRound = () => {
+  const question = getRandomNumber()
+  const correctAnswer = isEven(question) ? 'yes' : 'no'
 
-const runBrainEven = () => {
-  runGameEngine(gameDescription, getGameData);
-};
+  return { question, correctAnswer }
+}
 
-export default runBrainEven;
+export default getEvenRound

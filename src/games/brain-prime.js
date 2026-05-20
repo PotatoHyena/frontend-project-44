@@ -1,45 +1,35 @@
-import getRandomNum from '../utils/randomNum.js'
-import runGameEngine from '../utils/index.js'
+const getRandomNumber = () => Math.floor(Math.random() * 100)
 
-const settings = {
-  minNum: 0,
-  maxNum: 100,
-}
-const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".'
-
-const isPrimeNumber = (num) => {
-  if (num < 2) {
+const isPrime = (number) => {
+  if (number < 2) {
     return false
   }
-  for (let i = 2; i <= num / 2; i += 1) {
-    if (num % i === 0) {
+
+  if (number === 2) {
+    return true
+  }
+
+  if (number % 2 === 0) {
+    return false
+  }
+
+  for (let i = 3; i <= Math.sqrt(number); i += 2) {
+    if (number % i === 0) {
       return false
     }
   }
+
   return true
 }
 
-const generatePrimeNumber = (upperLimit) => {
-  let primeNumber = 2
-  for (let i = upperLimit; ; i -= 1) {
-    if (isPrimeNumber(i)) {
-      primeNumber = i
-      return primeNumber
-    }
+const getPrimeRound = () => {
+  const question = getRandomNumber()
+  const correctAnswer = isPrime(question) ? 'yes' : 'no'
+
+  return {
+    question,
+    correctAnswer,
   }
 }
 
-const getGameData = () => {
-  const randomPrimeNumber = generatePrimeNumber(getRandomNum(settings.minNum, settings.maxNum))
-  const randomNumber = getRandomNum(settings.minNum, settings.maxNum)
-  const numbers = [randomPrimeNumber, randomNumber]
-  const question = numbers[getRandomNum(0, numbers.length - 1)]
-  const correctAnswer = isPrimeNumber(question) ? 'yes' : 'no'
-  return [question, correctAnswer]
-}
-
-const runBrainPrime = () => {
-  runGameEngine(gameDescription, getGameData)
-}
-
-export default runBrainPrime
+export default getPrimeRound

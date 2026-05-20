@@ -1,4 +1,8 @@
 #!/usr/bin/env node
-import runBrainEven from '../src/games/brain-even.js';
 
-runBrainEven();
+import playGame from '../src/utils/index.js'
+import getEvenRound from '../src/games/brain-even.js'
+
+const description = 'Answer "yes" if the number is even, otherwise answer "no".'
+
+playGame(description, getEvenRound)

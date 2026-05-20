@@ -1,36 +1,33 @@
-import getRandomNum from '../utils/randomNum.js'
-import runGameEngine from '../utils/index.js'
+const getRandomNumber = () => Math.floor(Math.random() * 100)
 
-const settings = {
-  minNum: 0,
-  maxNum: 100,
+const getRandomOperation = () => {
+  const operations = ['+', '-', '*']
+  const index = Math.floor(Math.random() * operations.length)
+  return operations[index]
 }
-const operators = ['+', '-', '*']
-const gameDescription = 'What is the result of the expression?'
-const calcNums = (num1, num2, operator) => {
-  switch (operator) {
+
+const calculate = (a, b, operation) => {
+  switch (operation) {
     case '+':
-      return num1 + num2
+      return a + b
     case '-':
-      return num1 - num2
+      return a - b
     case '*':
-      return num1 * num2
+      return a * b
     default:
-      return false
+      throw new Error(`Unknown operation: ${operation}`)
   }
 }
 
-const getGameData = () => {
-  const num1 = getRandomNum(settings.minNum, settings.maxNum)
-  const num2 = getRandomNum(settings.minNum, settings.maxNum)
-  const operator = operators[getRandomNum(0, operators.length - 1)]
-  const question = `${num1} ${operator} ${num2}`
-  const correctAnswer = calcNums(num1, num2, operator).toString()
-  return [question, correctAnswer]
+const getCalcRound = () => {
+  const firstNumber = getRandomNumber()
+  const secondNumber = getRandomNumber()
+  const operation = getRandomOperation()
+
+  return {
+    question: `${firstNumber} ${operation} ${secondNumber}`,
+    correctAnswer: String(calculate(firstNumber, secondNumber, operation)),
+  }
 }
 
-const runBrainCalc = () => {
-  runGameEngine(gameDescription, getGameData)
-}
-
-export default runBrainCalc
+export default getCalcRound
